@@ -3,17 +3,17 @@
 
     <input v-model="form.situation" placeholder="🍡 Tình huống"
       class="input" />
-      
+
     <input v-model="form.romaji" placeholder="📝 Romaji"
       class="input" />
 
-    <input v-model="form.japanese" placeholder="Phiên âm iếng Nhật"
+    <input v-model="form.japanese" placeholder="Phiên âm tiếng Nhật"
       class="input" />
 
-    <input v-model="form.meaning" placeholder="💬 Meaning"
+    <input v-model="form.meaning" placeholder="💬 Nghĩa"
       class="input" />
 
-    <input v-model="form.grammar" placeholder="📚 Grammar"
+    <input v-model="form.grammar" placeholder="📚 Ngữ pháp"
       class="input" />
 
     <input v-model="form.level" placeholder="🏷 Level"
