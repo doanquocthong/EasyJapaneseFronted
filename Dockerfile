@@ -1,21 +1,15 @@
-FROM node:18
+FROM node:20
 
 WORKDIR /app
 
-# Copy package files
 COPY package*.json ./
-
-# Cài cả devDependencies
 RUN npm install
 
-# Copy source code
 COPY . .
 
-# Copy file env production để build Vite production
+# Copy env production nếu dùng VITE_API_URL
 COPY .env.production .env
 
-# Build
 RUN npm run build
 
-# Start (ví dụ dùng serve)
 CMD ["npx", "serve", "dist"]
