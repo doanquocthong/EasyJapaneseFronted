@@ -53,7 +53,7 @@ const keyword = ref("");
 const showButton = ref(false);
 
 let timeout = null;
-
+let intervalId = null; 
 // ✅ load data
 const loadData = async () => {
   const res = await api.getExamples();
@@ -94,6 +94,15 @@ const scrollToTop = () => {
 onMounted(() => {
   loadData();
   window.addEventListener("scroll", handleScroll);
+
+    // 🚀 POLLING Ở ĐÂY
+  intervalId = setInterval(() => {
+    // 👉 nếu đang search thì KHÔNG poll (tránh ghi đè kết quả search)
+    if (!keyword.value.trim()) {
+      console.log("Polling...");
+      loadData();
+    }
+  }, 3000); // 3s
 });
 
 onUnmounted(() => {
